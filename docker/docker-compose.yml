@@ -3,13 +3,13 @@ version: "3.8"
 services:
   app:
     build:
-      context: ../
+      context: /Users/jericokomiya/Documents/GitHub
       dockerfile: docker/Dockerfile
     container_name: fuelphp-app
     ports:
       - "80:80"
     volumes:
-      - ../:/var/www/html/my_fuel_project
+      - /Users/jericokomiya/Documents/GitHub/project:/var/www/html/my_fuel_project
     networks:
       - fuelphp-network
 
