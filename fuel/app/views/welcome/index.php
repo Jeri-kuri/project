@@ -1,5 +1,5 @@
 
-<?php
+<form?php
 use Fuel\Core\Security;  
 ?>
 
@@ -8,7 +8,7 @@ use Fuel\Core\Security;
 <head>
     <title>KIN TORE</title>
     <meta name="csrf-token" content="<?= Security::fetch_token(); ?>">
-    <link rel="stylesheet" href="/assets/css/index-layout.css">
+	<?php echo Asset::css('index-layout.css'); ?>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
 
@@ -26,13 +26,15 @@ use Fuel\Core\Security;
     </div>
 
 <!--ゴール記入欄-->
+<form action="/goal/create" method="POST">
     <div class = "goal-container">
         <h1>目標:</h1>
-        <input type="text" class="input-box" id="input-box" placeholder="目標を記入" readonly>
-        <button class="input-button" id= "edit-goal-button">
+        <input type="text" class="input-box" id="input-box" name="goal" placeholder="目標を記入" readonly value="<?= $goal ?? ''; ?>">
+        <button type="submit" class="input-button" id= "edit-goal-button">
              <img src="<?php echo Asset::get_file('edit.png','img');?>" height="40px" width="40px" alt="Edit">
         </button>
-    </div>p
+    </div>
+</form>
 
 <div class = "header-wrapper">
 <!--カレンダー-->
@@ -269,7 +271,7 @@ use Fuel\Core\Security;
 </div>    
 
 <script src="/assets/js/script.js"></script>
-<script src="/assets/js/goal.js"></script>
+
 
 
 
